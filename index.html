@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaReelSaver</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1>InstaReelSaver</h1>
+        </div>
+    </nav>
+    
+    <div class="main-content">
+        <h1>Download Instagram Reels Stories Videos Photos</h1>
+        <input type="text" id="instagramUrl" placeholder="Enter Instagram URL">
+        <button id="fetchButton">Fetch Video</button>
+        
+        <div id="videoInfo" style="display: none;">
+            <img id="thumbnail" src="" alt="Thumbnail">
+            <p id="title"></p>
+            <a id="downloadLink" href="" download="instagram_video.mp4">Download Video</a>
+        </div>
+    </div>
+
+    <script>
+        const apiKey = '1935e3a3damshae463748630ee8cp1868bdjsn58908a89197d';
+        const apiUrl = 'https://instagram-downloader-download-instagram-videos-stories.p.rapidapi.com/index?url=';
+
+        const fetchButton = document.getElementById('fetchButton');
+        const instagramUrlInput = document.getElementById('instagramUrl');
+        const videoInfo = document.getElementById('videoInfo');
+        const titleElement = document.getElementById('title');
+        const downloadLinkElement = document.getElementById('downloadLink');
+
+        fetchButton.addEventListener('click', async () => {
+            const userUrl = instagramUrlInput.value;
+
+            if (!userUrl) {
+                alert('Please enter an Instagram URL');
+                return;
+            }
+
+            const fullUrl = apiUrl + encodeURIComponent(userUrl);
+
+            try {
+                const response = await fetch(fullUrl, {
+                    method: 'GET',
+                    headers: {
+                        'X-RapidAPI-Key': apiKey,
+                        'X-RapidAPI-Host': 'instagram-downloader-download-instagram-videos-stories.p.rapidapi.com'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const { media, thumbnail, title } = data;
+
+                    // Display video thumbnail, title, and download link
+                    thumbnailElement.src = thumbnail;
+                    titleElement.textContent = title;
+                    downloadLinkElement.href = media;
+
+                    // Show video info
+                    videoInfo.style.display = 'block';
+                } else {
+                    console.error('Error fetching Instagram video:', response.statusText);
+                }
+            } catch (error) {
+                console.error('An error occurred:', error);
+            }
+        });
+    </script>
+</body>
+</html>
