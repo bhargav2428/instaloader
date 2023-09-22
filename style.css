@@ -1,0 +1,123 @@
+/* Reset some default styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Set up some global styles */
+html {
+    text-size-adjust: 100%;
+    line-height: 1.15;
+}
+@keyframes textGradient {
+    0% {
+        background: linear-gradient(90deg, #FF3333, #FF9933, #33FF33, #3333FF, #9933FF, #FF33FF, #33FFFF, #FFFF33, #FF3333);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    25% {
+        background: linear-gradient(90deg, #FF3333, #FF9933, #33FF33, #3333FF, #9933FF, #FF33FF, #33FFFF, #FFFF33, #FF3333);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        filter: hue-rotate(90deg);
+    }
+    50% {
+        background: linear-gradient(90deg, #FF3333, #FF9933, #33FF33, #3333FF, #9933FF, #FF33FF, #33FFFF, #FFFF33, #FF3333);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        filter: hue-rotate(180deg);
+    }
+    75% {
+        background: linear-gradient(90deg, #FF3333, #FF9933, #33FF33, #3333FF, #9933FF, #FF33FF, #33FFFF, #FFFF33, #FF3333);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        filter: hue-rotate(270deg);
+    }
+    100% {
+        background: linear-gradient(90deg, #FF3333, #FF9933, #33FF33, #3333FF, #9933FF, #FF33FF, #33FFFF, #FFFF33, #FF3333);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        filter: hue-rotate(360deg);
+    }
+}
+
+body {
+    background-color: #000;
+    color: white;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 1.5rem;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 20px 0;
+    text-align: center;
+    animation: textGradient 5s linear infinite;
+}
+
+/* Header section */
+h1 {
+    font-size: 3rem;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Input and Button styles */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+button#fetchButton {
+    display: block;
+    margin: 0 auto;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Video Info section */
+#videoInfo {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+img#thumbnail {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+p#title {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+a#downloadLink {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+a#downloadLink:hover {
+    background-color: #2980b9;
+}
